@@ -1,35 +1,72 @@
-*{
+* {
     box-sizing: border-box;
-    background-color: #1d1d20;
-    color:white;
-}
-h1{
-   font-size: 35px;
-}
-.col {
-float: left;
-width: 50%;
-padding: 10px;
-height: 300px; /* Should be removed. Only for demonstration */
-}
+    color: white;
+  }
+  footer{
+    text-align: center;
+    position: fixed;
+    left:0;
+    bottom:0;
+  }
+  body {
+    height:100vh;
+    background-image: url("images/background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 
-/* Clear floats after the columns */
-.row:after {
-content: "";
-display: table;
-clear: both;
-}
-.section_headers{
-color:white;
-width:50px;
-transition: color .2s, width .2s;
-    box-sizing: border-box; /* Add this line */
-}
-.section_headers:hover{
-color:red;
-width:100%;
-}
-
-li{
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 999;
+  }
+  
+  ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 2.5%;
     list-style-type: "\23AF";
-}
+  }
+  
+  
+  h1 {
+    font-size: 35px;
+    margin: 0;
+  }
+  
+  .col {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .section_headers {
+    color: white;
+    font-size: large;
+    transition: color 0.2s, font-size 0.2s;
+  }
+  
