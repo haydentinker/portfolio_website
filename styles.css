@@ -1,104 +1,115 @@
-@font-face{
-  font-family:'League Spartan';
-  src:url('fonts/league-spartan/LeagueSpartan-Bold.otf') format('opentype');
-  
+@font-face {
+  font-family: 'League Spartan';
+  src: url('fonts/league-spartan/LeagueSpartan-Bold.otf') format('opentype');
+
 }
+
+
 * {
-    box-sizing: border-box;
-    color: white;
-    font-family: 'League Spartan',sans-serif;
-  }
-  
-  footer{
-    position: fixed;
-    left:0;
-    bottom:0;
-  }
-  body {
-    background-color: rgba(0, 0, 0, .5);
-    background-image: url("images/background.png");
-    background-position: center;
-    background-repeat: repeat-y;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'League Spartan', sans-serif;
+  scroll-behavior: smooth;
+}
 
-  }
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
 
-  
-  ul {
+body {
+  background-color: rgba(0, 0, 0, .5);
+  background-image: url("images/background.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
 
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  li .section_headers {
-    display: block;
-    margin-right: 20px;
-    padding: 2.5%;
-    list-style-type: "\23AF";
-  }
-  
-  
-  .title {
-    font-size: 50px;
-    
-    margin-bottom:0;
-  }
-  .sub-title{
-    font-size:25px;
-    margin-bottom: 10%;
-  }
-  .col {
-    text-align: center;
-    float: left;
-    width: 50%;
-    padding: 10px;
-  }
-  
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  .section_headers {
-    cursor: pointer;
-    color: white;
-    font-size: 18px;
-    margin-bottom: 2.5%;
-    text-decoration: underline;
-    transition: font-weight 0.2s, font-size 0.2s;
-  }
-  .section_headers:hover{
-    font-weight: bold;
-    font-size: 20px;
-  }
-  p{
-    padding-left: 2rem;
-  }
-  .content{
-   
-    text-align: left;
-    border:2px solid rgba(255, 255, 255, .1);
-    margin-bottom: 5%;
-    transition: background-color .1s;
-  }
-  .content:hover{
-    background-color: rgba(0, 0, 0, .3);
-  }
-  .left-col{
-    position: fixed;
-    text-align: center;
-    float: left;
-    width: 50%;
-    padding: 10px;
-  }
-  .right-col{
-    margin-top: 5%;
-    text-align: center;
-    margin-left:50%;
-    padding: 10px;
-  }
+}
+
+ul {
+
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li .section_headers {
+  display: block;
+  margin-right: 20px;
+  padding: 2.5%;
+  list-style-type: "\23AF";
+}
+
+
+.title {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.sub-title {
+  font-size: 25px;
+  margin-bottom: 10%;
+}
+
+.col {
+  text-align: center;
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.section_headers {
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 2.5%;
+  text-decoration: underline;
+  transition: font-weight 0.2s, font-size 0.2s;
+}
+
+.section_headers:hover {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+p {
+  padding-left: 2rem;
+}
+
+.content {
+
+  text-align: left;
+  border: 2px solid rgba(255, 255, 255, .1);
+  margin-bottom: 5%;
+  transition: background-color .1s;
+}
+
+.content:hover {
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.left-col {
+  position: fixed;
+  text-align: center;
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.right-col {
+  margin-top: 5%;
+  text-align: center;
+  margin-left: 50%;
+  padding: 10px;
+}
