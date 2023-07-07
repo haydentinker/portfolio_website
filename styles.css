@@ -10,16 +10,12 @@
   color: white;
   font-family: 'League Spartan', sans-serif;
   scroll-behavior: smooth;
+
 }
 
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-}
 
 body {
-  background-color: rgba(0, 0, 0, .5);
+
   background-image: url("images/background.png");
   background-attachment: fixed;
   background-position: center;
@@ -56,18 +52,6 @@ li .section_headers {
   margin-bottom: 10%;
 }
 
-.col {
-  text-align: center;
-  float: left;
-  width: 50%;
-  padding: 10px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 .section_headers {
   cursor: pointer;
@@ -120,4 +104,16 @@ li .section_headers {
   text-align: center;
   margin-left: 50%;
   padding: 10px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .left-col {
+    width: auto;
+  }
+
+  .right-col {
+    width: auto;
+  }
 }
