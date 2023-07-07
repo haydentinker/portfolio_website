@@ -6,8 +6,8 @@
 
 
 * {
-  box-sizing: border-box;
   color: white;
+  box-sizing: border-box;
   font-family: 'League Spartan', sans-serif;
   scroll-behavior: smooth;
 
@@ -109,11 +109,16 @@ li .section_headers {
 
 
 @media screen and (max-width: 600px) {
+
+  li.section_headers a {}
+
   .left-col {
-    width: auto;
+    position: relative;
+    width: 100%;
   }
 
   .right-col {
-    width: auto;
+    align-content: center;
+
   }
 }
