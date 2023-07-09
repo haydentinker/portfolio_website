@@ -6,8 +6,8 @@
 
 
 * {
-  box-sizing: border-box;
   color: white;
+  box-sizing: border-box;
   font-family: 'League Spartan', sans-serif;
   scroll-behavior: smooth;
 
@@ -15,11 +15,10 @@
 
 
 body {
-
+  background-color: rgb(21, 26, 31);
   background-image: url("images/background.png");
   background-attachment: fixed;
   background-position: center;
-  background-repeat: repeat-y;
   background-size: cover;
   margin: 0;
   padding: 0;
@@ -75,6 +74,7 @@ li .section_headers {
   text-align: left;
   border: 2px solid rgba(255, 255, 255, .1);
   transition: background-color .1s;
+  overflow: auto;
 }
 
 .content:hover {
@@ -83,13 +83,28 @@ li .section_headers {
 
 .content ul {
   margin: 0;
-  padding-left: 20px;
+
 }
 
 .content li {
   margin-bottom: 5px;
-  list-style-type: disc;
+  list-style-type: none;
+  position: relative;
+  padding-left: 25px;
 }
+
+.content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+
 
 .left-col {
   position: fixed;
@@ -109,11 +124,30 @@ li .section_headers {
 
 
 @media screen and (max-width: 600px) {
+
+  ul li {
+    display: inline-flex;
+    padding-right: 5%;
+    margin-bottom: 10%;
+  }
+
+  li.section_headers {
+    display: none;
+  }
+
   .left-col {
-    width: auto;
+    position: relative;
+    width: 100%;
+    float: none;
+    text-align: center;
   }
 
   .right-col {
-    width: auto;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 5%;
+    text-align: center;
   }
+
 }
