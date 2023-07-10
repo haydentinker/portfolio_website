@@ -123,12 +123,16 @@ li .section_headers {
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
+  body {
+    background-color: rgb(21, 26, 31);
+    background-image: none;
+  }
 
   ul li {
     display: inline-flex;
     padding-right: 5%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
 
   li.section_headers {
