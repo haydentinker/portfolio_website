@@ -71,7 +71,7 @@ li .section_headers {
   padding: 10px;
   margin-bottom: 10px;
   font-size: 15px;
-  text-align: left;
+  
   border: 2px solid rgba(255, 255, 255, .1);
   transition: background-color .1s;
   overflow: auto;
@@ -87,6 +87,7 @@ li .section_headers {
 }
 
 .content li {
+  text-align: left;
   margin-bottom: 5px;
   list-style-type: none;
   position: relative;
@@ -154,4 +155,7 @@ li .section_headers {
     text-align: center;
   }
 
+}
+.content h1{
+  text-align: center;
 }
