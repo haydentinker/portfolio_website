@@ -1,7 +1,13 @@
-import React from 'react'
-import '../styles/Home.css';
+import React from 'react';
+import { Typography, Container } from "@mui/material";
+
+
 export const Home = () => {
   return (
-    <div className='home'>Hello</div>
-  )
-}
+    <Container
+     
+    >
+      <Typography variant='h1'>Hello</Typography>
+    </Container>
+  );
+};
