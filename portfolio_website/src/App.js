@@ -9,12 +9,11 @@ import { Table } from "./models/Table";
 import { Volleyball } from "./models/Volleyball";
 import { Vector3 } from "three";
 import bg from './assets/images/background.png';
+import { Experience } from "./components/Experience";
 function App() {
   return (
     <Box  sx={{
-      backgroundImage: `url(${bg})`, // Use the 'url()' syntax for background images
-      backgroundSize: 'cover', // Adjust the size of the background image
-      minHeight: '100vh', // Set a minimum height to cover the viewport
+      // background: `url(${bg}) no-repeat center/cover`
       
     }}>
       <AppBar
@@ -69,6 +68,7 @@ function App() {
         <Volleyball position={new Vector3(-1,-5,0)}/>
       </Canvas> */}
       <About/>
+      <Experience/>
     </Box>
   );
 }
