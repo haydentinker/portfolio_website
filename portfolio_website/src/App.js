@@ -57,7 +57,16 @@ function App() {
           </Container>
         </Container>
       </AppBar>
+      <Canvas
+        style={{
+          height:'100vh',
+          top: 0,
+          left: 0,
+          backgroundColor: 'transparent',
+        }}
+      >
       <Home></Home>
+      </Canvas>
       {/* <Canvas style={{ height:'50vh',backgroundColor: "white" }}>
         <ambientLight intensity={0.1} />
         <directionalLight color="white" position={[0, -1, 5]} intensity={2} />
