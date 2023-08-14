@@ -14,10 +14,9 @@ function App() {
   return (
     <Box  sx={{
       // background: `url(${bg}) no-repeat center/cover`
-      
     }}>
       <AppBar
-        position="static"
+       
         sx={{
           bgcolor: "transparent",
           padding: "1%",
