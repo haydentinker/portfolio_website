@@ -1,6 +1,4 @@
 import { Box, Container, Typography, Paper, Grid } from '@mui/material'
-import { Canvas } from '@react-three/fiber'
-import { Roman } from '../models/Roman'
 import React from 'react'
 import Timeline from '@mui/lab/Timeline';
 import TimelineContent from '@mui/lab/TimelineContent';
