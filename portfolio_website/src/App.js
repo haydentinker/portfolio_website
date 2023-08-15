@@ -10,7 +10,7 @@ function App() {
       <AppBar
        
         sx={{
-          bgcolor: "transparent",
+          bgColor: "transparent",
           padding: "1%",
           backdropFilter: "blur(5px)",
         }}
