@@ -9,8 +9,8 @@ export const About = () => {
   };
   return (
     <>
-    <Typography variant='h2' textAlign={'center'} >About Me</Typography>
-    <Grid container marginBottom={'15rem'}>
+    <Typography variant='h2' textAlign={'center'} gutterBottom>About Me</Typography>
+    <Grid container sx={{py:4}}>
      
       <Grid item xs={6}>
         

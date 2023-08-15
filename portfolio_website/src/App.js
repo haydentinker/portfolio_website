@@ -4,6 +4,7 @@ import { About } from "./components/About";
 import { Typography, Box,Container } from "@mui/material";
 import { Home } from "./components/Home";
 import { Experience } from "./components/Experience";
+import { Projects } from "./components/Projects";
 function App() {
   return (
     <Box>
@@ -61,6 +62,7 @@ function App() {
       </Canvas>
       <About/>
       <Experience/>
+      <Projects/>
     </Box>
   );
 }
