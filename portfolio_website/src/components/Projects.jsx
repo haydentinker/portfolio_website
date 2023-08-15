@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card,CardContent,CardMedia,Typography,Container,Grid} from '@mui/material';
+import { Box,Card,CardContent,CardMedia,Typography,Container,Grid} from '@mui/material';
 import flaskLogo from '../assets/images/flaskLogo.png';
 import projectDev from '../assets/images/projectDev.png';
 import fermentationBuddy from '../assets/images/fermentationBuddy.png';
@@ -54,10 +54,11 @@ export const Projects = () => {
         },
     ];
   return (
-    <>
-    <Container sx={{ py: 4}} maxWidth="md">
-        <Typography variant='h2' textAlign={'center'} gutterBottom> Projects</Typography>
-          <Grid container spacing={4}>
+    <Box sx={{my:'4rem'}}>
+    <Typography variant='h2' textAlign={'center'} gutterBottom borderBottom={"1px solid white"}> Projects</Typography>
+    <Container  maxWidth="md" >
+        
+          <Grid container spacing={4} py="8rem">
             {projects.map((project, index) => (
               <Grid item key={index} xs={12} sm={6} md={4}>
                 <Card 
@@ -94,6 +95,6 @@ export const Projects = () => {
             ))}
           </Grid>
         </Container>
-    </>
+    </Box>
   )
 }

@@ -22,10 +22,11 @@ export const Experience = () => {
   {companyName:"Walla Walla University",date:'June 2023',description:'Graduated with a Bachelor of Science degree in Computer Science and Business Administration.'}
 ]
   return (
-    <Box sx={{py:4}}>
-      <Typography variant='h2' textAlign='center' gutterBottom>Experience</Typography>
+    <Box my='4rem'>
+      <Typography variant='h2' textAlign='center' gutterBottom borderBottom={'1px solid white'} >Experience</Typography>
       <Timeline
       sx={{
+        py:'8rem',
         [`& .${timelineOppositeContentClasses.root}`]: {
           flex: 0.2,
         },

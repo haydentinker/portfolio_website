@@ -10,6 +10,9 @@ const theme = createTheme({
       main: '#f50057',
     },
   },
+  text:{
+    visitedLink:'white'
+  },
   typography: {
     fontFamily: 'Roboto, sans-serif',
   },
