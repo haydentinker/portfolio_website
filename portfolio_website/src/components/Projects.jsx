@@ -6,6 +6,12 @@ import fermentationBuddy from '../assets/images/fermentationBuddy.png';
 import nurse from '../assets/images/nurse.png';
 import githubLogo from '../assets/images/githubLogo.png';
 export const Projects = () => {
+    function onPictureHover(e) {
+        e.target.style.filter= 'none';
+      }
+      function onPictureLeave(e) {
+        e.target.style.filter= 'grayscale(100%)';
+      }
     const projects = [
         
         {name:"One Piece Wordle", description:
@@ -54,15 +60,21 @@ export const Projects = () => {
           <Grid container spacing={4}>
             {projects.map((project, index) => (
               <Grid item key={index} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                <Card 
+                  sx={{height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                   <CardMedia
+                    onMouseOver={onPictureHover}
+                    onMouseLeave={onPictureLeave}
                     component="div"
                     sx={{
                       pt: '75%',
                         objectFit:'contain'
+                    }}
+                    style={{
+                        filter:  'grayscale(100%)',
+                        transition:'filter 0.5s ease',
                     }}
                     image={project.img}
                     alt={project.alt}
