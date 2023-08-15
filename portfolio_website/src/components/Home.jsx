@@ -1,4 +1,4 @@
-import React from 'react';
+import {React} from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { DeskSetupModel } from '../models/DeskSetupModel';
 import { useTheme } from '@emotion/react';
@@ -6,7 +6,7 @@ import { Text3D } from '@react-three/drei';
 
 
 const ResponsiveText = ({ position, scale, children }) => {
-
+  
   const font =
     'https://cdn.rawgit.com/mrdoob/three.js/r129/examples/fonts/helvetiker_regular.typeface.json';
 
@@ -19,6 +19,8 @@ const ResponsiveText = ({ position, scale, children }) => {
 };
 
 export const Home = () => {
+ 
+
   const { viewport } = useThree();
   const isMobile = window.innerWidth < 769;
   const isDesktop= !isMobile && window.innerWidth<2560;
@@ -33,7 +35,7 @@ export const Home = () => {
 
       <> 
       
-        <DeskSetupModel position={[viewport.width/2, viewport.height/6, -4]} scale={[0.02 * responsiveRatio, 0.02 * responsiveRatio, 0.02 * responsiveRatio]} />
+        <DeskSetupModel position={[viewport.width/2, viewport.height/6, -4]} scale={[0.015 * responsiveRatio, 0.015 * responsiveRatio, 0.015 * responsiveRatio]} />
         <ResponsiveText position={[-viewport.width/3, .5, 0]} scale={[0.07 * responsiveRatio, 0.07 * responsiveRatio, 0.07 * responsiveRatio]}>Hello! I'm</ResponsiveText>
         <ResponsiveText position={[-viewport.width/3, -viewport.height / 5 , 0]} scale={[0.08 * responsiveRatio, 0.08 * responsiveRatio, 0.08 * responsiveRatio]}>Hayden Tinker</ResponsiveText>
         </>):
