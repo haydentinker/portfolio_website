@@ -1,5 +1,5 @@
 import {React,useState} from 'react'
-import { Box, Container, Typography, Paper, Grid } from '@mui/material'
+import { Box, Typography,  Grid } from '@mui/material'
 import pugs from '../assets/images/pugs.png'
 export const About = () => {
   const [hovered,setHovered]= useState(true);

@@ -1,7 +1,5 @@
 import {React} from 'react';
-import { Canvas, useThree } from '@react-three/fiber';
 import { DeskSetupModel } from '../models/DeskSetupModel';
-import { useTheme } from '@emotion/react';
 import { Text3D } from '@react-three/drei';
 import { useScreenSize } from '../context/ScreenSizeContext';
 
@@ -23,7 +21,6 @@ export const Home = () => {
 
   const dimensions=useScreenSize();
   var isMobile = dimensions.width < 769;
-  const isDesktop= !isMobile && dimensions.width<2560;
   return (
     <>
 
@@ -33,11 +30,11 @@ export const Home = () => {
 
       <> 
       
-      <ResponsiveText  position={[-.0025*dimensions.width, .0015*dimensions.height, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Hello,</ResponsiveText>
-          <ResponsiveText  position={[-.002*dimensions.width, .0005*dimensions.height, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>I'm</ResponsiveText>
-          <DeskSetupModel position={[0.002*dimensions.width, .0005*dimensions.height , -5]} scale={[0.01 * dimensions.width/100, 0.01 * dimensions.width/100, 0.01* dimensions.width/100]} />
-          <ResponsiveText  position={[-.0017*dimensions.width, -.0009*dimensions.height, 0]}scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Hayden</ResponsiveText>
-          <ResponsiveText  position={[-.001*dimensions.width, -.002*dimensions.height, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Tinker</ResponsiveText>
+      <ResponsiveText  position={[-2.5, 2, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Hello,</ResponsiveText>
+          <ResponsiveText  position={[-1.5, 0.5, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>I'm</ResponsiveText>
+          <DeskSetupModel position={[0.002*dimensions.width,1.5 , -5]} scale={[0.01 * dimensions.width/100, 0.01 * dimensions.width/100, 0.01* dimensions.width/100]} />
+          <ResponsiveText  position={[-0.5, -1, 0]}scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Hayden</ResponsiveText>
+          <ResponsiveText  position={[0.5, -2.5, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Tinker</ResponsiveText>
         
        </> ):
 

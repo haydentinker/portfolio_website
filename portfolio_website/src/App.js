@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
-import AppBar from "@mui/material/AppBar";
+
 import { About } from "./components/About";
-import { Typography, Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import { Home } from "./components/Home";
 import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
@@ -11,32 +11,30 @@ import { ScreenSizeProvider } from "./context/ScreenSizeContext";
 function App() {
   return (
     <ScreenSizeProvider>
-    <Box>
-      <NavBar/>
-      <div id="home"/>
-      <Canvas
-        style={{
-          height: "100vh",
-          top: 0,
-          left: 0,
-          backgroundColor: "transparent",
-        }}
-      > 
-        
-        <Home></Home>
-      </Canvas>
-      <div id="about" style={{paddingTop:'10px'}}/>
-      <About id="about" />
-      <div id="experience" style={{paddingTop:'10px'}}/>
-      <Experience id="experience" />
-      
-      <div id="projects" style={{paddingTop:'10px'}}/>
-      <Projects  id="projects"/>
-      
-      <div id="contact" style={{paddingTop:'10px'}}/>
-      <Contact id="contact"/>
-    
-    </Box>
+      <Box>
+        <NavBar />
+        <div id="home" />
+        <Canvas
+          style={{
+            height: "100vh",
+            top: 0,
+            left: 0,
+            backgroundColor: "transparent",
+          }}
+        >
+          <Home></Home>
+        </Canvas>
+        <div id="about" style={{ paddingTop: "10px" }} />
+        <About id="about" />
+        <div id="experience" style={{ paddingTop: "10px" }} />
+        <Experience id="experience" />
+
+        <div id="projects" style={{ paddingTop: "10px" }} />
+        <Projects id="projects" />
+
+        <div id="contact" style={{ paddingTop: "10px" }} />
+        <Contact id="contact" />
+      </Box>
     </ScreenSizeProvider>
   );
 }
