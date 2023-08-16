@@ -9,18 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: 🛠️ Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14 
+          node-version: 14 # Choose the appropriate version
 
       - name: 🔧 Install dependencies
         run: npm install
+        working-directory: ./portfolio_website/portfolio_website
 
       - name: 🧪 Build the React app
         run: npm run build
+        working-directory: ./portfolio_website/portfolio_website
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -29,4 +31,4 @@ jobs:
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
-          local-dir: build 
+          local-dir: ./portfolio_website/portfolio_website/build
