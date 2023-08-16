@@ -7,8 +7,10 @@ import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { NavBar } from "./components/NavBar";
+import { ScreenSizeProvider } from "./context/ScreenSizeContext";
 function App() {
   return (
+    <ScreenSizeProvider>
     <Box>
       <NavBar/>
       <div id="home"/>
@@ -35,6 +37,7 @@ function App() {
       <Contact id="contact"/>
     
     </Box>
+    </ScreenSizeProvider>
   );
 }
 

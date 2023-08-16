@@ -66,6 +66,8 @@ export const Projects = () => {
                 >
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                   <CardMedia
+                   onfocusin={onPictureHover}
+                   onfocusout={onPictureLeave}
                     onMouseOver={onPictureHover}
                     onMouseLeave={onPictureLeave}
                     component="div"

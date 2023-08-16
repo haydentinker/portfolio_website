@@ -3,7 +3,7 @@ import { Canvas, useThree } from '@react-three/fiber';
 import { DeskSetupModel } from '../models/DeskSetupModel';
 import { useTheme } from '@emotion/react';
 import { Text3D } from '@react-three/drei';
-
+import { useScreenSize } from '../context/ScreenSizeContext';
 
 const ResponsiveText = ({ position, scale, children }) => {
   
@@ -21,38 +21,33 @@ const ResponsiveText = ({ position, scale, children }) => {
 export const Home = () => {
  
 
-  const { viewport } = useThree();
-  const isMobile = window.innerWidth < 769;
-  const isDesktop= !isMobile && window.innerWidth<2560;
-  const responsiveRatio = viewport.width
+  const dimensions=useScreenSize();
+  var isMobile = dimensions.width < 769;
+  const isDesktop= !isMobile && dimensions.width<2560;
   return (
     <>
 
       <ambientLight intensity={.7} />
-      <directionalLight intensity={2} position={[0,viewport.height,1]}/>
+      <directionalLight intensity={2} position={[0,dimensions.height,1]}/>
       {!isMobile ?( 
-        isDesktop?(
 
       <> 
       
-        <DeskSetupModel position={[viewport.width/2, viewport.height/6, -4]} scale={[0.015 * responsiveRatio, 0.015 * responsiveRatio, 0.015 * responsiveRatio]} />
-        <ResponsiveText position={[-viewport.width/3, .5, 0]} scale={[0.07 * responsiveRatio, 0.07 * responsiveRatio, 0.07 * responsiveRatio]}>Hello! I'm</ResponsiveText>
-        <ResponsiveText position={[-viewport.width/3, -viewport.height / 5 , 0]} scale={[0.08 * responsiveRatio, 0.08 * responsiveRatio, 0.08 * responsiveRatio]}>Hayden Tinker</ResponsiveText>
-        </>):
-        <> 
-        <DeskSetupModel position={[viewport.width/3, viewport.height/5, -4]} scale={[0.01 * responsiveRatio, 0.01 * responsiveRatio, 0.01* responsiveRatio]} />
-        <ResponsiveText position={[-viewport.width/3, viewport.height/6, 0]} scale={[0.07 * responsiveRatio, 0.07 * responsiveRatio, 0.07 * responsiveRatio]}>Hello! I'm</ResponsiveText>
-        <ResponsiveText position={[-viewport.width/3, -viewport.height / 5 , 0]} scale={[0.08 * responsiveRatio, 0.08 * responsiveRatio, 0.08 * responsiveRatio]}>Hayden Tinker</ResponsiveText>
-        </>
-        ):
+      <ResponsiveText  position={[-.0025*dimensions.width, .0015*dimensions.height, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Hello,</ResponsiveText>
+          <ResponsiveText  position={[-.002*dimensions.width, .0005*dimensions.height, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>I'm</ResponsiveText>
+          <DeskSetupModel position={[0.002*dimensions.width, .0005*dimensions.height , -5]} scale={[0.01 * dimensions.width/100, 0.01 * dimensions.width/100, 0.01* dimensions.width/100]} />
+          <ResponsiveText  position={[-.0017*dimensions.width, -.0009*dimensions.height, 0]}scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Hayden</ResponsiveText>
+          <ResponsiveText  position={[-.001*dimensions.width, -.002*dimensions.height, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Tinker</ResponsiveText>
+        
+       </> ):
 
           //Mobile design
           <>
-          <ResponsiveText position={[-viewport.width/7, viewport.height/4.5, 1]} scale={[0.09 * responsiveRatio, 0.09 * responsiveRatio, 0.09 * responsiveRatio]}>Hello,</ResponsiveText>
-          <ResponsiveText position={[-viewport.width/12, viewport.height /7, 1]} scale={[0.09 * responsiveRatio, 0.09 * responsiveRatio, 0.09 * responsiveRatio]}>I'm</ResponsiveText>
-          <DeskSetupModel position={[-viewport.width/12, 0, -7]}scale={[0.15, 0.15, 0.15]} />
-          <ResponsiveText position={[-viewport.width/5, -viewport.height/7.5, 2]} scale={[0.09 * responsiveRatio, 0.09 * responsiveRatio, 0.09 * responsiveRatio]}>Hayden</ResponsiveText>
-          <ResponsiveText position={[-viewport.width/5, -viewport.height/4.5, 2]} scale={[0.09 * responsiveRatio, 0.09 * responsiveRatio, 0.09 * responsiveRatio]}>Tinker</ResponsiveText>
+          <ResponsiveText  position={[-.003*dimensions.width, .002*dimensions.height, 0]} scale={[0.01 * dimensions.width/15, 0.01 * dimensions.width/15, 0.01* dimensions.width/15]}>Hello,</ResponsiveText>
+          <ResponsiveText  position={[-.002*dimensions.width, .001*dimensions.height, 0]} scale={[0.01 * dimensions.width/15, 0.01 * dimensions.width/15, 0.01* dimensions.width/15]}>I'm</ResponsiveText>
+          <DeskSetupModel position={[0, 0, -5]} scale={[0.01 * dimensions.width/100, 0.01 * dimensions.width/100, 0.01* dimensions.width/100]} />
+          <ResponsiveText  position={[.00008*dimensions.width, -.001*dimensions.height, 0]}scale={[0.01 * dimensions.width/15, 0.01 * dimensions.width/15, 0.01* dimensions.width/15]}>Hayden</ResponsiveText>
+          <ResponsiveText  position={[0.0007*dimensions.width, -.002*dimensions.height, 0]} scale={[0.01 * dimensions.width/15, 0.01 * dimensions.width/15, 0.01* dimensions.width/15]}>Tinker</ResponsiveText>
           </>
           }
     </>

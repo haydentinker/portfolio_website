@@ -12,7 +12,7 @@ export const About = () => {
     <Typography variant='h2' textAlign={'center'} gutterBottom borderBottom={'1px solid white'}>About Me</Typography>
     <Grid container sx={{py:'8rem'}}>
      
-      <Grid item xs={6}>
+      <Grid item xs={12} md={6} >
         
         <Typography padding='2rem' variant='h4' gutterBottom color='text.secondary'  lineHeight={'2'} marginLeft={'2rem'} >
           Future owner of The World's First Pug Army and recent graduate with a BS in Computer Science and Business Administration.
@@ -20,7 +20,7 @@ export const About = () => {
           I'm actively seeking roles that will allow me to apply my skills and contribute to innovative projects.
         </Typography>
       </Grid>
-      <Grid item xs={6}  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Grid item xs={12} md={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <img
           src={pugs}
           alt="Pugs"
@@ -32,6 +32,8 @@ export const About = () => {
             filter: hovered ? 'grayscale(100%)' : 'none',
             transition:'filter 0.5s ease',
           }}
+          onfocusin={handleMouseHover}
+          onfocusout={handleMouseHover}
           onMouseEnter={handleMouseHover}
           onMouseLeave={handleMouseHover}
         />
