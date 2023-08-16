@@ -45,10 +45,10 @@ export const Contact = () => {
                 <Container>
                 <Typography variant='h5' gutterBottom>Social Media:</Typography>
                 <Box display='flex' alignItems='center' paddingTop={"5px"}>
-                        <a href="" target="_blank" rel="noopener noreferrer" style={{marginRight:'1rem'}}>
+                        <a href="https://www.linkedin.com/in/hayden-tinker/" target="_blank" rel="noopener noreferrer" style={{marginRight:'1rem'}}>
                             <LinkedInIcon/>
                         </a>
-                        <a href="" target="_blank" rel="noopener noreferrer" style={{marginLeft:'1rem'}}>
+                        <a href="https://github.com/haydentinker" target="_blank" rel="noopener noreferrer" style={{marginLeft:'1rem'}}>
                             <GitHubIcon/>
                         </a>
                     </Box>

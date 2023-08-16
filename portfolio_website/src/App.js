@@ -1,70 +1,39 @@
 import { Canvas } from "@react-three/fiber";
 import AppBar from "@mui/material/AppBar";
 import { About } from "./components/About";
-import { Typography, Box,Container } from "@mui/material";
+import { Typography, Box, Container } from "@mui/material";
 import { Home } from "./components/Home";
 import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
+import { NavBar } from "./components/NavBar";
 function App() {
   return (
     <Box>
-      <AppBar
-       
-        sx={{
-          bgColor: "transparent",
-          padding: "1%",
-          backdropFilter: "blur(5px)",
-        }}
-      >
-        <Container
-          maxWidth="xl"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Container sx={{ display: "flex", alignItems: "center" }}>
-            <Typography variant="h4">Hayden Tinker</Typography>
-          </Container>
-          <Container
-            maxWidth="xl"
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "100%",
-            }}
-          >
-            <Typography variant="h5" noWrap>
-              Home
-            </Typography>
-            <Typography variant="h5" noWrap>
-              About
-            </Typography>
-            <Typography variant="h5" noWrap>
-              Experience
-            </Typography>
-            <Typography variant="h5" noWrap>
-              Contact
-            </Typography>
-          </Container>
-        </Container>
-      </AppBar>
+      <NavBar/>
+      <div id="home"/>
       <Canvas
         style={{
-          height:'100vh',
+          height: "100vh",
           top: 0,
           left: 0,
-          backgroundColor: 'transparent',
+          backgroundColor: "transparent",
         }}
-      >
-      <Home></Home>
+      > 
+        
+        <Home></Home>
       </Canvas>
-      <About/>
-      <Experience/>
-      <Projects/>
-      <Contact/>
+      <div id="about" style={{paddingTop:'10px'}}/>
+      <About id="about" />
+      <div id="experience" style={{paddingTop:'10px'}}/>
+      <Experience id="experience" />
+      
+      <div id="projects" style={{paddingTop:'10px'}}/>
+      <Projects  id="projects"/>
+      
+      <div id="contact" style={{paddingTop:'10px'}}/>
+      <Contact id="contact"/>
+    
     </Box>
   );
 }
