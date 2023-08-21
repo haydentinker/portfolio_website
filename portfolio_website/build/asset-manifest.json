@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.95a9ecd2.css",
+    "main.js": "/static/js/main.c102e5b2.js",
+    "static/media/projectDev.png": "/static/media/projectDev.784fb3484a1eeae6bbda.png",
+    "static/media/pugs.png": "/static/media/pugs.5949c4a7194254844aed.png",
+    "static/media/nurse.png": "/static/media/nurse.da7223480479eeee3707.png",
+    "static/media/favicon.png": "/static/media/favicon.d17525e78f5c41f58f72.png",
+    "static/media/fermentationBuddy.png": "/static/media/fermentationBuddy.0cdaccbccd1c4d474131.png",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.95a9ecd2.css",
+    "static/js/main.c102e5b2.js"
+  ]
+}
