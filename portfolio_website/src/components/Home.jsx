@@ -1,10 +1,10 @@
-import {React} from 'react';
+import {React,Suspense,useState,useEffect, Component} from 'react';
 import { DeskSetupModel } from '../models/DeskSetupModel';
 import { Text3D } from '@react-three/drei';
 import { useScreenSize } from '../context/ScreenSizeContext';
-
+import { Loading } from './Loading';
 const ResponsiveText = ({ position, scale, children }) => {
-  
+
   const font =
     'https://cdn.rawgit.com/mrdoob/three.js/r129/examples/fonts/helvetiker_regular.typeface.json';
 
@@ -16,9 +16,8 @@ const ResponsiveText = ({ position, scale, children }) => {
   );
 };
 
-export const Home = () => {
+function Home () {  
  
-
   const dimensions=useScreenSize();
   var isMobile = dimensions.width < 769;
   return (
@@ -47,7 +46,8 @@ export const Home = () => {
           <ResponsiveText  position={[0.0007*dimensions.width, -.002*dimensions.height, 0]} scale={[0.01 * dimensions.width/15, 0.01 * dimensions.width/15, 0.01* dimensions.width/15]}>Tinker</ResponsiveText>
           </>
           }
-    </>
+   </>
       
   );
 };
+export default Home;
