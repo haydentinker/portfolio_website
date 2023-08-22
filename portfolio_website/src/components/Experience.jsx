@@ -12,7 +12,7 @@ import TimelineOppositeContent,{
   timelineOppositeContentClasses,
 } from '@mui/lab/TimelineOppositeContent';
 export const Experience = () => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView} = useInView({
     threshold:.50,
   });
   const experience=[{companyName:'Software Developer at Walla Walla University',date:'Sept. 2021 - June 2023',description:

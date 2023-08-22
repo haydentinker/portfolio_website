@@ -4,7 +4,7 @@ import pugs from '../assets/images/pugs.png'
 import { useInView } from 'react-intersection-observer';
 import Fade from '@mui/material/Fade';
 export const About = () => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold:.50,
   });
   const [hovered,setHovered]= useState(true);

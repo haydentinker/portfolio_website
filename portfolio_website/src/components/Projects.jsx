@@ -8,7 +8,7 @@ import githubLogo from '../assets/images/githubLogo.png';
 import { useInView } from 'react-intersection-observer';
 import Fade from '@mui/material/Fade';
 export const Projects = () => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold:.25,
   });
     function onPictureHover(e) {
