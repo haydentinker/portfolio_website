@@ -18,7 +18,8 @@ const ResponsiveText = ({ position, scale, children }) => {
 
 function Home () {  
  
-  const dimensions=useScreenSize();
+  var dimensions=useScreenSize();
+  var ratio=dimensions.width/dimensions.height;
   var isMobile = dimensions.width < 769;
   return (
     <>
@@ -29,11 +30,11 @@ function Home () {
 
       <> 
       
-      <ResponsiveText  position={[-2.5, 2, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Hello,</ResponsiveText>
-          <ResponsiveText  position={[-1.5, 0.5, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>I'm</ResponsiveText>
+      <ResponsiveText  position={[-3, 2, 0]} scale={[.5*ratio, .5*ratio, .5*ratio]}>Hello,</ResponsiveText>
+          <ResponsiveText  position={[-2, 0.5, 0]} scale={[.5*ratio, .5*ratio, .5*ratio]}>I'm</ResponsiveText>
           <DeskSetupModel position={[0.002*dimensions.width,1.5 , -5]} scale={[0.01 * dimensions.width/100, 0.01 * dimensions.width/100, 0.01* dimensions.width/100]} />
-          <ResponsiveText  position={[-0.5, -1, 0]}scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Hayden</ResponsiveText>
-          <ResponsiveText  position={[0.5, -2.5, 0]} scale={[0.01 * dimensions.width/25, 0.01 * dimensions.width/25, 0.01* dimensions.width/25]}>Tinker</ResponsiveText>
+          <ResponsiveText  position={[-1, -1, 0]}scale={[.5*ratio, .5*ratio, .5*ratio]}>Hayden</ResponsiveText>
+          <ResponsiveText  position={[0, -2.5, 0]} scale={[.5*ratio, .5*ratio, .5*ratio]}>Tinker</ResponsiveText>
         
        </> ):
 

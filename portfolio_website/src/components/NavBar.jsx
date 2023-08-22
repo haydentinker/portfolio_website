@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { Typography, Box, useMediaQuery} from "@mui/material";
+import { Link, Typography, Box, useMediaQuery } from "@mui/material";
 import Drawer from '@mui/material/Drawer';
 import { useTheme } from '@emotion/react';
 import Toolbar from '@mui/material/Toolbar';
@@ -44,10 +44,12 @@ export const NavBar = () => {
     >
       <Toolbar sx={{ flexWrap: 'wrap' }}>
         <img src={logo} alt={`Hayden Tinker's logo`} style={{ maxHeight: '55px', marginRight: '10px' }} />
-        {!isXsDown? <Typography variant="h4" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-          Hayden Tinker
-        </Typography>
-        :<></>}
+        {!isXsDown ? <Link color="text.primary"
+          href="#home"
+          sx={{ textDecoration: 'none', flexGrow: 1 }}><Typography variant="h4" color="inherit" noWrap >
+            Hayden Tinker
+          </Typography> </Link >
+          : <></>}
         {isMdDown ? (
           <Box display={'flex'} justifyContent={'right'}>
 

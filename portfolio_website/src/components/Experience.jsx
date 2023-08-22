@@ -6,10 +6,15 @@ import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineDot from '@mui/lab/TimelineDot';
-import TimelineOppositeContent, {
+import { useInView } from 'react-intersection-observer';
+import Fade from '@mui/material/Fade';
+import TimelineOppositeContent,{
   timelineOppositeContentClasses,
 } from '@mui/lab/TimelineOppositeContent';
 export const Experience = () => {
+  const { ref, inView, entry } = useInView({
+    threshold:.50,
+  });
   const experience=[{companyName:'Software Developer at Walla Walla University',date:'Sept. 2021 - June 2023',description:
   `Developed a web application for the Walla Walla University School of Nursing, enhancing the
   curriculum and providing a valuable resource for current students.
@@ -22,6 +27,7 @@ export const Experience = () => {
   {companyName:"Walla Walla University",date:'June 2023',description:'Graduated with a Bachelor of Science degree in Computer Science and Business Administration.'}
 ]
   return (
+    <Fade ref={ref} in={inView}>
     <Box my='4rem'>
       <Typography variant='h2' textAlign='center' gutterBottom borderBottom={'1px solid white'} >Experience</Typography>
       <Timeline
@@ -58,5 +64,6 @@ export const Experience = () => {
       
       </Timeline>
       </Box>
+      </Fade>
   )
 }
