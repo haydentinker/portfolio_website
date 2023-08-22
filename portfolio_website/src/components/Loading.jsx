@@ -1,6 +1,6 @@
 import React from 'react'
-import {Box, Container,Typography } from '@mui/material';
-import Fade from '@mui/material/Fade';
+import {Box, Typography } from '@mui/material';
+
 export const Loading = ()=> {
 
   return (

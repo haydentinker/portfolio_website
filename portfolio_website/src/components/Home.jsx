@@ -1,8 +1,7 @@
-import {React,Suspense,useState,useEffect, Component} from 'react';
+import {React} from 'react';
 import { DeskSetupModel } from '../models/DeskSetupModel';
 import { Text3D } from '@react-three/drei';
 import { useScreenSize } from '../context/ScreenSizeContext';
-import { Loading } from './Loading';
 const ResponsiveText = ({ position, scale, children }) => {
 
   const font =

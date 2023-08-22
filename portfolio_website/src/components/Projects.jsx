@@ -5,7 +5,12 @@ import projectDev from '../assets/images/projectDev.png';
 import fermentationBuddy from '../assets/images/fermentationBuddy.png';
 import nurse from '../assets/images/nurse.png';
 import githubLogo from '../assets/images/githubLogo.png';
+import { useInView } from 'react-intersection-observer';
+import Fade from '@mui/material/Fade';
 export const Projects = () => {
+  const { ref, inView, entry } = useInView({
+    threshold:.25,
+  });
     function onPictureHover(e) {
         e.target.style.filter= 'none';
       }
@@ -54,6 +59,7 @@ export const Projects = () => {
         },
     ];
   return (
+    <Fade ref={ref} in={inView}>
     <Box sx={{my:'4rem'}}>
     <Typography variant='h2' textAlign={'center'} gutterBottom borderBottom={"1px solid white"}> Projects</Typography>
     <Container  maxWidth="md" >
@@ -97,5 +103,6 @@ export const Projects = () => {
           </Grid>
         </Container>
     </Box>
+    </Fade>
   )
 }

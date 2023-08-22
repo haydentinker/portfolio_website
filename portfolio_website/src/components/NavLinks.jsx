@@ -7,8 +7,16 @@ export const NavLinks = () => {
   const isLgDown = useMediaQuery(theme.breakpoints.down('lg'));
   return (
 <>
-
-
+          {isLgDown ?
+            <Link
+              variant={isLgDown? 'h7':'h5'}
+              
+              color="text.primary"
+              href="#home"
+              sx={{textDecoration:'none', my: 1, mx: 3 }}
+            >
+              Home
+            </Link>:""}
             <Link
               variant={isLgDown? 'h7':'h5'}
               

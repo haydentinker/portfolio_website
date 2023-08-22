@@ -1,13 +1,19 @@
 import {React,useState} from 'react'
 import { Box, Typography,  Grid } from '@mui/material'
 import pugs from '../assets/images/pugs.png'
+import { useInView } from 'react-intersection-observer';
+import Fade from '@mui/material/Fade';
 export const About = () => {
+  const { ref, inView, entry } = useInView({
+    threshold:.50,
+  });
   const [hovered,setHovered]= useState(true);
   const handleMouseHover=()=>{
     setHovered(!hovered);
 
   };
   return (
+    <Fade in={inView} ref={ref}>
     <Box sx={{marginTop:'10rem',marginBottom:'4rem'}}>
     <Typography variant='h2' textAlign={'center'} gutterBottom borderBottom={'1px solid white'}>About Me</Typography>
     <Grid container sx={{py:'8rem'}}>
@@ -40,5 +46,6 @@ export const About = () => {
 
     </Grid>
     </Box>
+    </Fade>
   )
 }

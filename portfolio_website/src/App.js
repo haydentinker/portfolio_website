@@ -1,4 +1,5 @@
-import React, { Suspense, lazy,useState} from "react";
+import React, { Suspense, lazy} from "react";
+
 import { Canvas } from "@react-three/fiber";
 import { Box } from "@mui/material";
 import { ScreenSizeProvider } from "./context/ScreenSizeContext";
@@ -12,12 +13,12 @@ import { Contact } from "./components/Contact";
 const Home = lazy(() => import('./components/Home'));
 
 function App() {
- 
+  
   return (
     <ScreenSizeProvider>
       <NavBar />
       <Box>
-        <div id="home" />
+        <div id="home"/>
         <Suspense fallback={<Loading />}>
           
           <Canvas
@@ -31,9 +32,9 @@ function App() {
             <Home/>
           </Canvas>
         
-       
+          
         </Suspense>
-
+      
         <Section id="about">
           <About />
         </Section>
@@ -46,7 +47,7 @@ function App() {
           <Projects />
         </Section>
 
-        <Section id="contact">
+        <Section id="contact" >
           <Contact />
         </Section>
       </Box>
@@ -54,9 +55,9 @@ function App() {
   );
 }
 
-// Helper component to add consistent padding to sections
+
 const Section = ({ id, children }) => (
-  <div id={id} style={{ paddingTop: "10px" }}>
+  <div id={id} style={{ paddingTop: "10px" }} >
     {children}
   </div>
 );
