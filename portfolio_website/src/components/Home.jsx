@@ -2,6 +2,7 @@ import {React} from 'react';
 import { DeskSetupModel } from '../models/DeskSetupModel';
 import { Text3D } from '@react-three/drei';
 import { useScreenSize } from '../context/ScreenSizeContext';
+
 const ResponsiveText = ({ position, scale, children }) => {
 
   const font =

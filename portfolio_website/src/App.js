@@ -1,5 +1,4 @@
 import React, { Suspense, lazy} from "react";
-
 import { Canvas } from "@react-three/fiber";
 import { Box } from "@mui/material";
 import { ScreenSizeProvider } from "./context/ScreenSizeContext";
