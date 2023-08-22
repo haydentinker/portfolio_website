@@ -32,8 +32,7 @@ export const About = () => {
             filter: hovered ? 'grayscale(100%)' : 'none',
             transition:'filter 0.5s ease',
           }}
-          onfocusin={handleMouseHover}
-          onfocusout={handleMouseHover}
+    
           onMouseEnter={handleMouseHover}
           onMouseLeave={handleMouseHover}
         />

@@ -32,7 +32,7 @@ export const Contact = () => {
                     
                 </Container>
             </Grid>
-            <Grid container md={6}> 
+            <Grid container> 
             <Grid item xs={12} md={6} sx={{ paddingTop: '3rem' }}>
 
                 <Container>

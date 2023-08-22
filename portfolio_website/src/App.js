@@ -1,42 +1,64 @@
+import React, { Suspense, lazy,useState} from "react";
 import { Canvas } from "@react-three/fiber";
-
-import { About } from "./components/About";
 import { Box } from "@mui/material";
-import { Home } from "./components/Home";
+import { ScreenSizeProvider } from "./context/ScreenSizeContext";
+import { Loading } from "./components/Loading";
+import { NavBar } from "./components/NavBar";
+import { About } from "./components/About";
 import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
-import { NavBar } from "./components/NavBar";
-import { ScreenSizeProvider } from "./context/ScreenSizeContext";
+
+const Home = lazy(() => import('./components/Home'));
+
 function App() {
+ 
   return (
     <ScreenSizeProvider>
+      <NavBar />
       <Box>
-        <NavBar />
         <div id="home" />
-        <Canvas
-          style={{
-            height: "100vh",
-            top: 0,
-            left: 0,
-            backgroundColor: "transparent",
-          }}
-        >
-          <Home></Home>
-        </Canvas>
-        <div id="about" style={{ paddingTop: "10px" }} />
-        <About id="about" />
-        <div id="experience" style={{ paddingTop: "10px" }} />
-        <Experience id="experience" />
+        <Suspense fallback={<Loading />}>
+          
+          <Canvas
+            style={{
+              height: "100vh",
+              top: 0,
+              left: 0,
+              backgroundColor: "transparent",
+            }}
+          >
+            <Home/>
+          </Canvas>
+        
+       
+        </Suspense>
 
-        <div id="projects" style={{ paddingTop: "10px" }} />
-        <Projects id="projects" />
+        <Section id="about">
+          <About />
+        </Section>
 
-        <div id="contact" style={{ paddingTop: "10px" }} />
-        <Contact id="contact" />
+        <Section id="experience">
+          <Experience />
+        </Section>
+
+        <Section id="projects">
+          <Projects />
+        </Section>
+
+        <Section id="contact">
+          <Contact />
+        </Section>
       </Box>
     </ScreenSizeProvider>
   );
 }
+
+// Helper component to add consistent padding to sections
+const Section = ({ id, children }) => (
+  <div id={id} style={{ paddingTop: "10px" }}>
+    {children}
+  </div>
+);
 
 export default App;
