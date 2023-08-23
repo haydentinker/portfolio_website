@@ -1,4 +1,4 @@
-import React, { Suspense, lazy} from "react";
+import React, { Suspense} from "react";
 import { Canvas } from "@react-three/fiber";
 import { Box } from "@mui/material";
 import { ScreenSizeProvider } from "./context/ScreenSizeContext";
@@ -8,8 +8,7 @@ import { About } from "./components/About";
 import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
-
-const Home = lazy(() => import('./components/Home'));
+import { Home } from "./components/Home";
 
 function App() {
   
