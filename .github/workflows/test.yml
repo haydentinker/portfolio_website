@@ -1,7 +1,22 @@
+name: Run Tests on Push
+
 on:push
-name: Run Tests
-test_frontend:
-  stage: test
-  script:
-    - cd portfolio_website
-    - npm test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14  
+
+    - name: Install dependencies and run tests
+      run: |
+        cd portfolio_website
+        npm install
+        npm test
