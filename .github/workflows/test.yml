@@ -1,0 +1,7 @@
+on:push
+name: Run Tests
+test_frontend:
+  stage: test
+  script:
+    - cd portfolio_website
+    - npm test
