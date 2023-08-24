@@ -21,8 +21,8 @@ export const Contact = () => {
             }
         }}>
         
-       
-            <Grid item xs={12} md={6} sx={{ paddingTop: '3rem', gridRow: { xs: 'auto', md: 'span 2' } }}>
+            
+            <Grid item xs={12} md={6} sx={{ paddingTop: '3rem', gridRow: 'span 2' }}>
                 <Container>
                     <Typography variant='h4'gutterBottom>Contact Me</Typography>
                 
@@ -32,7 +32,8 @@ export const Contact = () => {
                     
                 </Container>
             </Grid>
-            <Grid container> 
+
+            <Grid container item md={6}>
             <Grid item xs={12} md={6} sx={{ paddingTop: '3rem' }}>
 
                 <Container>
