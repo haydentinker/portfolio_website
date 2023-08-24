@@ -1,8 +1,10 @@
-import React from 'react';
-import { render,screen } from '@testing-library/react';
-import { Contact} from '../components/Contact';
-import './mocks/intersectionObserverMock';
-import { toBeInTheDocument, toHaveStyle} from '@testing-library/jest-dom';
+import {render,screen} from '@testing-library/react';
+import { describe,test} from 'vitest';
+import { Contact } from '../components/Contact';
+import '@testing-library/jest-dom';
+/**
+ * @jest-environment jsdom
+ */
 describe('Contact Component', () => {
  
 

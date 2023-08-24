@@ -1,8 +1,7 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import {render,screen} from '@testing-library/react';
+import { describe,test} from 'vitest';
 import { Loading } from '../components/Loading';
-import './mocks/intersectionObserverMock';
-import { toBeInTheDocument, toHaveStyle} from '@testing-library/jest-dom';
+import '@testing-library/jest-dom'
 describe('Loading Component', () => {
  
 
