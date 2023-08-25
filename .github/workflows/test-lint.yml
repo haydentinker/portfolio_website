@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      COMPOSE_FILE: ./portfolio_website/docker-compose.yml
+      COMPOSE_FILE: ./docker-compose.yml
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
