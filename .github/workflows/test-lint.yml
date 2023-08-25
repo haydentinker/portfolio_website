@@ -14,7 +14,9 @@ jobs:
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     
     - name: Set up Docker Compose
-      run: docker-compose -f docker-compose-dev.yml up -d 
+      run: |
+        cd portfolio_website
+        docker-compose -f docker-compose-dev.yml up -d 
 
     - name: Run Unit Tests
       run: |
