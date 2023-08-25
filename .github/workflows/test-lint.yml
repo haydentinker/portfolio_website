@@ -16,7 +16,7 @@ jobs:
       run: |
         cd portfolio_website
         docker-compose build
-        docker-compose -f docker-compose.yml exec test npm test
+        docker-compose run test
     - name: Tear down Docker Compose
       run: docker-compose down  
   lint:
