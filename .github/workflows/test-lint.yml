@@ -20,7 +20,7 @@ jobs:
 
     - name: Run Unit Tests
       run: |
-        docker-compose -f docker-compose.yml -f docker-compose-dev.yml exec react-app npm test 
+        docker-compose -f docker-compose-dev.yml exec react-app npm test 
 
     - name: Tear down Docker Compose
       run: docker-compose down  
