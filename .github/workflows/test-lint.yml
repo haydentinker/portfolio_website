@@ -5,7 +5,8 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    env:
+      COMPOSE_FILE: ./portfolio_website/docker-compose.yml
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -16,11 +17,11 @@ jobs:
     - name: Set up Docker Compose
       run: |
         cd portfolio_website
-        docker-compose -f docker-compose-dev.yml up -d 
+        docker-compose build
 
     - name: Run Unit Tests
       run: |
-        docker-compose -f docker-compose-dev.yml exec test npm test 
+        docker-compose run test
 
     - name: Tear down Docker Compose
       run: docker-compose down  
