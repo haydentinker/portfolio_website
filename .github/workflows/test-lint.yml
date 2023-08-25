@@ -6,20 +6,25 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      app:
+        image: docker.io/haydentinker/portfolio-website:latest
+        ports:
+          - "80:80"
+
     steps:
-    - name: Checkout repository
+    - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14  
+    - name: Set up Docker Compose
+      run: docker-compose -f docker-compose-dev.yml up -d 
 
-    - name: Install dependencies and run tests
+    - name: Run Unit Tests
       run: |
-        cd portfolio_website
-        npm install
-        npm test
+        docker-compose -f docker-compose.yml -f docker-compose-dev.yml exec react-app npm test 
+
+    - name: Tear down Docker Compose
+      run: docker-compose down  
   lint:
     runs-on: ubuntu-latest
 
