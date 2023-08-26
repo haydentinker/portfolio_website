@@ -17,6 +17,7 @@ jobs:
         docker-compose -f docker-compose-prod.yml build
         docker-compose -f docker-compose-prod.yml up -d
         docker cp production:/app/build/ ./
+        rm .\build\assets\favicon-bd542eb1.png 
         docker-compose down
         
     - name: 📂 Sync files
