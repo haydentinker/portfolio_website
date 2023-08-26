@@ -11,18 +11,13 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
 
-    - name: Use Node.js 14
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-      
-    - name: 🔨 Build Project
+    - name: 🐳 Build and Run Docker Compose
       run: |
         cd portfolio_website
-        npm install
-        npm run build
-    
-      
+        docker-compose -f docker-compose-prod.yml up -d
+        docker cp portfolio_website-react-app-1:/app/build /build
+        docker-compose down
+        
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
@@ -30,4 +25,8 @@ jobs:
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
-          local-dir: ./portfolio_website/build/
+          local-dir: .  # Use "." to indicate the current directory (Docker container contents)
+      
+    - name: 🧹 Clean up
+      run: |
+        cd portfolio_website
