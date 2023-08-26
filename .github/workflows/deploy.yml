@@ -14,7 +14,7 @@ jobs:
     - name: 🐳 Build and Run Docker Compose
       run: |
         cd portfolio_website
-        docker-compose -f docker-compose-prod.yml build -d
+        docker-compose -f docker-compose-prod.yml build
         docker cp portfolio_website-react-app-1:/app/build /build
         docker-compose down
         
