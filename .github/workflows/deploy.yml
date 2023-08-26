@@ -15,6 +15,7 @@ jobs:
       run: |
         cd portfolio_website
         docker-compose -f docker-compose-prod.yml build
+        docker-compose -f docker-compose-prod.yml up -d
         docker cp production:/app/build /build
         docker-compose down
         
