@@ -12,10 +12,10 @@ describe('Contact Component', () => {
     const { container,getByText} = render(<Contact/>);
 
     const grid=container.querySelectorAll('.MuiGrid-container');
-    expect(grid.length===3);
+    await expect(grid.length===3);
    
     const gridItems=container.querySelectorAll('.MuiGrid-item');
-    expect(gridItems.length===5);
+    await expect(gridItems.length===5);
     
   
   });

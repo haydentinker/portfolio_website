@@ -1,0 +1,21 @@
+version: "3"
+services:
+  react-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+    environment:
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev  
+    command: ["npm", "test"]
+    depends_on:
+      - react-app
+    

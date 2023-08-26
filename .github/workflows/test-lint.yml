@@ -5,21 +5,19 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
+    - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14  
-
-    - name: Install dependencies and run tests
+    - name: Log in to Docker Hub
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Composing up, running tests, and composing down
       run: |
         cd portfolio_website
-        npm install
-        npm test
+        docker-compose build
+        docker-compose run test
+        docker-compose down  
   lint:
     runs-on: ubuntu-latest
 
