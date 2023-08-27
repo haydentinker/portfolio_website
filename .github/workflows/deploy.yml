@@ -1,28 +1,36 @@
+name: 🚀 Deploy website on push
+
 on:
   push:
     branches:
       - production
-name: 🚀 Deploy website on push
+
 jobs:
-  web-deploy:
+  build-docker:
+    name: 🐳 Build and Run Docker Compose
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and run Docker Compose
+        run: |
+          cd portfolio_website
+          docker-compose -f docker-compose-prod.yml build
+          docker-compose -f docker-compose-prod.yml up -d
+          docker cp production:/app/build/ ./
+          docker-compose -f docker-compose-prod.yml down
+
+  deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: 🐳 Build and Run Docker Compose
-      run: |
-        cd portfolio_website
-        docker-compose -f docker-compose-prod.yml build
-        docker-compose -f docker-compose-prod.yml up -d
-        docker cp production:/app/build/ ./
-        rm ./build/assets/favicon-bd542eb1.png 
-        docker-compose down
-        
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
-      with:
+      - name: Sync files using FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
           server: haydentinker.com
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
