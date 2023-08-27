@@ -12,7 +12,7 @@ jobs:
     
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: 🐳 Build and Run Docker Compose
       run: |
@@ -20,14 +20,14 @@ jobs:
         docker-compose -f docker-compose-prod.yml build
         docker-compose -f docker-compose-prod.yml up -d
         mkdir build_artifact
-        docker cp production:/app/build/ ./build_artifact
+        docker cp production:/app/build/ ./build
         docker-compose down
         
     - name: 🔗 Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: build-artifact
-        path: ./build_artifact
+        path: ./build
 
   deploy:
     needs: web-deploy
