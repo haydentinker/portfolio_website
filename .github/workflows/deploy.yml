@@ -2,41 +2,48 @@ on:
   push:
     branches:
       - production
+
 name: 🚀 Deploy website on push
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+    
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
 
-    - name: 🐳 Build Docker Compose
+    - name: 🐳 Build and Run Docker Compose
       run: |
         cd portfolio_website
         docker-compose -f docker-compose-prod.yml build
-
-    - name: 🚀 Run Docker Compose
-      run: |
-        cd portfolio_website
         docker-compose -f docker-compose-prod.yml up -d
+        mkdir build_artifact
+        docker cp production:/app/build/ ./build_artifact
+        docker-compose down
+        
+    - name: 🔗 Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifact
+        path: ./build_artifact
 
-    - name: 📂 Copy files from Docker container
-      run: |
-        mkdir build
-        docker cp production:/app/build/ ./build/
+  deploy:
+    needs: web-deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 📂 Download Artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: build-artifact
+        path: ./downloaded_artifact
 
-    - name: 📂 Sync files to remote server
+    - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-          server: haydentinker.com
-          username: ${{secrets.FTP_USERNAME}}
-          password: ${{secrets.FTP_PASSWORD}}
-          port: 21
-          local-dir: ./
-          
-    - name: 🛑 Stop Docker Compose
-      run: |
-        cd portfolio_website
-        docker-compose -f docker-compose-prod.yml down
-
+        server: haydentinker.com
+        username: ${{secrets.FTP_USERNAME}}
+        password: ${{secrets.FTP_PASSWORD}}
+        port: 21
+        local-dir: ./downloaded_artifact/build/
