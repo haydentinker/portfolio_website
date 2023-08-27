@@ -40,6 +40,8 @@ jobs:
         with:
           name: build  
           path: downloaded-artifact  
+      - name: lsR
+        run: ls -R
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
