@@ -21,15 +21,32 @@ jobs:
         docker-compose -f docker-compose-prod.yml up -d
         docker cp production:/app/build/ ./build
         docker-compose down
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with: 
+        name: build
+        path: dist
+
+
   deploy:
     needs: web-deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
-      with:
-        server: haydentinker.com
-        username: ${{secrets.FTP_USERNAME}}
-        password: ${{secrets.FTP_PASSWORD}}
-        port: 21
-        local-dir: ./portfolio_website/build/
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build  
+          path: downloaded-artifact  
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: haydentinker.com
+          username: ${{secrets.FTP_USERNAME}}
+          password: ${{secrets.FTP_PASSWORD}}
+          port: 21
+          local-dir: ./downloaded-artifact/dist/  
