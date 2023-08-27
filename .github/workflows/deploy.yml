@@ -19,14 +19,14 @@ jobs:
         cd portfolio_website
         docker-compose -f docker-compose-prod.yml build
         docker-compose -f docker-compose-prod.yml up -d
-        docker cp production:/app/build/ ./build
+        docker cp production:/app/build/ ../build
         docker-compose down
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with: 
         name: build
-        path: dist
+        path: ../build
 
 
   deploy:
@@ -49,4 +49,4 @@ jobs:
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
-          local-dir: ./downloaded-artifact/dist/  
+          local-dir: ./downloaded-artifact/build 
