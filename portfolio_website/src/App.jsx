@@ -14,7 +14,7 @@ function App() {
   
   return (
     <ScreenSizeProvider>
-      <NavBar />
+      {/* <NavBar /> */}
       <Box>
         <div id="home"/>
         <Suspense fallback={<Loading />}>
