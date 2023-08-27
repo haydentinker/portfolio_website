@@ -48,4 +48,4 @@ jobs:
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
-          local-dir: /home/runner/work/portfolio_website/portfolio_website/downloaded-artifact/build/
+          local-dir: downloaded-artifact/build/
