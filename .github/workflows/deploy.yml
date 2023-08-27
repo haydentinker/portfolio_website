@@ -17,7 +17,7 @@ jobs:
         docker-compose -f docker-compose-prod.yml build
         docker-compose -f docker-compose-prod.yml up -d
         
-    - name: 📂 Sync files from Docker container to remote server
+    - name: 📂 Sync files from Docker container
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
           server: haydentinker.com
