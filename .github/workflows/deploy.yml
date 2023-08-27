@@ -11,22 +11,32 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
 
-    - name: 🐳 Build and Run Docker Compose
+    - name: 🐳 Build Docker Compose
       run: |
         cd portfolio_website
         docker-compose -f docker-compose-prod.yml build
+
+    - name: 🚀 Run Docker Compose
+      run: |
+        cd portfolio_website
         docker-compose -f docker-compose-prod.yml up -d
-        
-    - name: 📂 Sync files from Docker container
+
+    - name: 📂 Copy files from Docker container
+      run: |
+        mkdir build
+        docker cp production:/app/build/ ./build/
+
+    - name: 📂 Sync files to remote server
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
           server: haydentinker.com
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
-          local-dir: production:/app/build/
+          local-dir: ./build/
           
     - name: 🛑 Stop Docker Compose
       run: |
         cd portfolio_website
         docker-compose -f docker-compose-prod.yml down
+
