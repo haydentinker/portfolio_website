@@ -2,31 +2,51 @@ on:
   push:
     branches:
       - production
+
 name: 🚀 Deploy website on push
+
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: Build
     runs-on: ubuntu-latest
+    
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: 🐳 Build and Run Docker Compose
       run: |
         cd portfolio_website
+        docker-compose -f docker-compose-prod.yml build
         docker-compose -f docker-compose-prod.yml up -d
-        docker cp portfolio_website-react-app-1:/app/build /build
-        docker-compose down
-        
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
-      with:
+        docker cp production:/app/build/ ./build
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with: 
+        name: build
+        path: portfolio_website/build
+
+
+  deploy:
+    needs: web-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build  
+          path: downloaded-artifact
+
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
           server: haydentinker.com
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
-          local-dir: .  # Use "." to indicate the current directory (Docker container contents)
-      
-    - name: 🧹 Clean up
-      run: |
-        cd portfolio_website
+          local-dir: ./downloaded-artifact/
