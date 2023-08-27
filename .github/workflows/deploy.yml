@@ -16,15 +16,17 @@ jobs:
         cd portfolio_website
         docker-compose -f docker-compose-prod.yml build
         docker-compose -f docker-compose-prod.yml up -d
-        docker cp production:/app/build/ ./
-        rm ./build/assets/favicon-bd542eb1.png 
-        docker-compose down
         
-    - name: 📂 Sync files
+    - name: 📂 Sync files from Docker container to remote server
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
           server: haydentinker.com
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
-          local-dir: ./portfolio_website/build/
+          local-dir: production:/app/build/
+          
+    - name: 🛑 Stop Docker Compose
+      run: |
+        cd portfolio_website
+        docker-compose -f docker-compose-prod.yml down
