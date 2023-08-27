@@ -21,9 +21,6 @@ jobs:
         docker-compose -f docker-compose-prod.yml up -d
         docker cp production:/app/build/ ./build
 
-    - name: See directory
-      run:
-        ls    
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with: 
@@ -51,4 +48,4 @@ jobs:
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
-          local-dir: ./downloaded-artifact/build/ 
+          local-dir: /portfolio_website/downloaded-artifact/build/ 
