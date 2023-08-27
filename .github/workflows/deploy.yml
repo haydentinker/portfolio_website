@@ -7,7 +7,7 @@ name: 🚀 Deploy website on push
 
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: Build
     runs-on: ubuntu-latest
     
     steps:
@@ -19,26 +19,12 @@ jobs:
         cd portfolio_website
         docker-compose -f docker-compose-prod.yml build
         docker-compose -f docker-compose-prod.yml up -d
-        mkdir build_artifact
         docker cp production:/app/build/ ./build
         docker-compose down
-        
-    - name: 🔗 Upload Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-artifact
-        path: ./build
-
   deploy:
     needs: web-deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 📂 Download Artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: build-artifact
-        path: ./downloaded_artifact
-
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
@@ -46,4 +32,4 @@ jobs:
         username: ${{secrets.FTP_USERNAME}}
         password: ${{secrets.FTP_PASSWORD}}
         port: 21
-        local-dir: ./downloaded_artifact/build/
+        local-dir: ./portfolio_website/build/
