@@ -7,6 +7,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineDot from '@mui/lab/TimelineDot';
 import { useInView } from 'react-intersection-observer';
+import {isMobile} from 'react-device-detect';
 import Fade from '@mui/material/Fade';
 import TimelineOppositeContent,{
   timelineOppositeContentClasses,
@@ -27,7 +28,7 @@ export const Experience = () => {
   {companyName:"Walla Walla University",date:'June 2023',description:'Graduated with a Bachelor of Science degree in Computer Science and Business Administration.'}
 ]
   return (
-    <Fade ref={ref} in={inView}>
+    <Fade ref={ref} in={inView || isMobile}>
     <Box my='4rem'>
       <Typography variant='h2' textAlign='center' gutterBottom borderBottom={'1px solid white'} >Experience</Typography>
       <Timeline
