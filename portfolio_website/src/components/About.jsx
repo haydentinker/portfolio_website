@@ -3,6 +3,7 @@ import { Box, Typography,  Grid } from '@mui/material'
 import pugs from '../assets/images/pugs.png'
 import { useInView } from 'react-intersection-observer';
 import Fade from '@mui/material/Fade';
+import {isMobile} from 'react-device-detect';
 export const About = () => {
   const { ref, inView } = useInView({
     threshold:.50,
@@ -13,7 +14,7 @@ export const About = () => {
 
   };
   return (
-    <Fade in={inView} ref={ref}>
+    <Fade ref={ref} in={inView || isMobile}>
     <Box sx={{marginTop:'10rem',marginBottom:'4rem'}}>
     <Typography variant='h2' textAlign={'center'} gutterBottom borderBottom={'1px solid white'}>About Me</Typography>
     <Grid container sx={{py:'8rem'}}>
