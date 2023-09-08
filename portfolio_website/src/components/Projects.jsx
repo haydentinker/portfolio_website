@@ -2,6 +2,7 @@ import React from 'react';
 import { Box,Card,CardContent,CardMedia,Typography,Container,Grid} from '@mui/material';
 import flaskLogo from '../assets/images/flaskLogo.png';
 import projectDev from '../assets/images/projectDev.png';
+import leetCode from '../assets/images/leetcode.png';
 import fermentationBuddy from '../assets/images/fermentationBuddy.png';
 import nurse from '../assets/images/nurse.png';
 import githubLogo from '../assets/images/githubLogo.png';
@@ -19,14 +20,6 @@ export const Projects = () => {
         e.target.style.filter= 'grayscale(100%)';
       }
     const projects = [
-        
-        {name:"One Piece Wordle", description:
-        `Currently developing a web application parody of wordle where users will guess the One Piece character of the day instead of a word. I am utilizing React for the frontend,
-        Django for the backend, and Scrapy to extract character information from the One Piece Wikipedia.`,
-        img:projectDev,
-        alt:"Project is still being developed picture",
-        link:"https://github.com/haydentinker/OnePieceWordleFrontend"
-        },
         {
             name:"Fermentation Buddy", description:
             `Constructed an intuitive web application designed to assist users in managing their fermentation projects effectively, including automated email reminders. 
@@ -51,6 +44,13 @@ export const Projects = () => {
             img:flaskLogo,
             alt:"Flask python logo",
             link:"https://github.com/garrettkmoody/WWU-Wash-And-Dry-Backend"
+        },
+        
+        {name:"Leet Code Solutions", description:
+        `This repository is where I will be posting all of my submissions for Leet Code problems.`,
+        img:leetCode,
+        alt:"Leet Code Logo",
+        link:"https://github.com/haydentinker/LeetCode"
         },
         {name:"My Github", description:
         `Github is where I will be pushing all my code for projects.`,
