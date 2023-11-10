@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Card, CardContent, CardMedia, Typography, Container, Grid } from '@mui/material';
 import flaskLogo from '../assets/images/flaskLogo.png';
 import bookPicture from '../assets/images/books.jpg'
-import pugDash from '../assets/images/pugDash.png'
+import pugDash from '../assets/images/pugdash.png'
 import leetCode from '../assets/images/leetcode.png';
 import fermentationBuddy from '../assets/images/fermentationBuddy.png';
 import nurse from '../assets/images/nurse.png';
