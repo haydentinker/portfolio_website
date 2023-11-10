@@ -9,7 +9,7 @@ describe('Experience Component', () => {
   test('renders Experience Component and checks to make sure timeline element is in document', async() => {
     const { container,getByText}  = render(<Experience/>);
     
-    const textContent = getByText('Experience');
+    const textContent = getByText('Education and Experience');
     await expect(textContent).toBeInTheDocument();
     const timeline=container.querySelectorAll('.MuiTimeline-root');
     await expect(timeline[0]).toBeInTheDocument();
