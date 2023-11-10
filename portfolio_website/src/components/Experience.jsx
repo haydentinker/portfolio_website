@@ -16,21 +16,23 @@ export const Experience = () => {
   const { ref, inView} = useInView({
     threshold:.50,
   });
-  const experience=[{companyName:'Software Developer at Walla Walla University',date:'Sept. 2021 - June 2023',description:
-  `Designed and developed the backend of a web-based application using Dart Shelf for Walla 
-  Walla University School of Nursing. Streamlined development with implementation of automated testing suite. 
-  Collaborated with peers and technical mentors in weekly code reviews. Organized and overhauled documentation.
-  `},
+  const experience=[
   {companyName:'Sales and Management Intern at Sherwin Williams',date:'June 2022 - Sept. 2022',description:`Partnered with store leadership to oversee store operations, providing strategic insights and leadership.
   Learned all aspects of operations, clients, and internal strategy to contribute significantly to the team's success.
   Generated growth and increased market share by targeting and selling to large commercial users.
   Analyzed market trends and developed relationships to promote and sell high-quality products.`},
-  {companyName:"Walla Walla University",date:'June 2023',description:'Graduated with a Bachelor of Science degree in Computer Science and Business Administration.'}
+  {companyName:'Software Developer at Walla Walla University',date:'Sept. 2022 - June 2023',description:
+  `Designed and developed the backend of a web-based application using Dart Shelf for Walla 
+  Walla University School of Nursing. Streamlined development with implementation of automated testing suite. 
+  Collaborated with peers and technical mentors in weekly code reviews. Organized and overhauled documentation.
+  `},
+  {companyName:"Walla Walla University",date:'June 2023',description:'Graduated with a Bachelor of Science degree in Computer Science and Business Administration.'},
+  {companyName:"AWS Certified Associate Developer",date:'Expected Dec. 2023',description:'I will be taking the AWS Certified Associate Developer Exam in early December!'}
 ]
   return (
     <Fade ref={ref} in={inView || isMobile}>
     <Box my='4rem'>
-      <Typography variant='h2' textAlign='center' gutterBottom borderBottom={'1px solid white'} >Experience</Typography>
+      <Typography variant='h2' textAlign='center' gutterBottom borderBottom={'1px solid white'} >Education and Experience</Typography>
       <Timeline
       sx={{
         py:'8rem',
